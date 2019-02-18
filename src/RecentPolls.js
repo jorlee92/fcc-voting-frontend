@@ -17,12 +17,11 @@ class RecentPolls extends Component {
     <div className="text-center">
         <div className="container-fluid">
         <div className="row px-2">
-        { this.state.polls.map(poll => {
-          return <RecentPoll name={poll.name} creatorName={poll.creatorName} pictureURL={ poll.pictureURL }/>
+        { this.state.polls.map((poll,idx) => {
+          return <RecentPoll name={poll.name} key={idx} 
+          creatorName={poll.creatorName} 
+          pictureURL={ poll.pictureURL }/>
         }) }
-          <RecentPoll/>
-          <RecentPoll/>
-          <RecentPoll/>
         </div>
         </div>
       </div>
