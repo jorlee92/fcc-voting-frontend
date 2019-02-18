@@ -9,19 +9,22 @@ class Jumbotron extends Component {
             showModal : false,
         }
     }
-
+    config = {
+        withCredentials: true,
+      };
     toggleModal = () => {
         this.setState({ showModal : !this.state.showModal })
     }
 
     submitPoll = () => {
         //Get the current contents of the two fields
+        
         let pollName = document.querySelector("#polltitle").value;
         let pollImg = document.querySelector("#picurl").value;
-        Axios.post('http://localhost:3001/poll', {
+        Axios.post('http://localhost:3000/poll/', {
             name: pollName,
             pictureURL: pollImg,
-        })
+        }, this.config)
         .then( response => { 
             console.log(response) 
             this.toggleModal();

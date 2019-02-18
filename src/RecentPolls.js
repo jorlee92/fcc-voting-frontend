@@ -7,7 +7,7 @@ class RecentPolls extends Component {
     this.state = { polls : []};
   }
   componentDidMount() {
-    Axios.get('http://localhost:3001/poll/')
+    Axios.get('http://localhost:3000/poll/')
     .then(results => {
       this.setState({ polls: results.data })
     });
